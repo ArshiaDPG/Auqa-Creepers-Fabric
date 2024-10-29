@@ -21,7 +21,6 @@ public class AquaItems {
             7329243, 0,
             new Item.Settings()));
 
-
     public static void init(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addAfter(Items.ALLAY_SPAWN_EGG, AQUA_CREEPER_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.TADPOLE_BUCKET, AQUA_CREEPER_BUCKET));

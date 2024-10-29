@@ -13,20 +13,20 @@ public class AquaTags {
     public static <T> TagKey<T> tag(String name, RegistryKey<? extends Registry<T>> key){
         return TagKey.of(key, AquaCreepers.id(name));
     }
-    public class Blocks{
+    public static class Blocks{
         private static TagKey<Block> tag(String name){
             return AquaTags.tag(name, RegistryKeys.BLOCK);
         }
-        public static final TagKey<Block> IGNORABLE_FLUIDS = tag("ignorable_fluids");
+//        public static final TagKey<Block> IGNORABLE_FLUIDS = tag("ignorable_fluids");
     }
-    public class Items{
+    public static class Items{
         private static TagKey<Item> tag(String name){
             return AquaTags.tag(name, RegistryKeys.ITEM);
         }
 
         public static final TagKey<Item> AQUA_CREEPER_DROP_MUSIC_DISCS = tag("aqua_creeper_drop_music_discs");
     }
-    public class Biomes{
+    public static class Biomes{
         private static TagKey<Biome> tag(String name){
             return AquaTags.tag(name, RegistryKeys.BIOME);
         }

@@ -25,6 +25,6 @@ public class AquaBlockTagProvider extends FabricTagProvider<Block> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(AquaTags.Blocks.IGNORABLE_FLUIDS).add(Blocks.WATER);
+//        getOrCreateTagBuilder(AquaTags.Blocks.IGNORABLE_FLUIDS).add(Blocks.WATER);
     }
 }

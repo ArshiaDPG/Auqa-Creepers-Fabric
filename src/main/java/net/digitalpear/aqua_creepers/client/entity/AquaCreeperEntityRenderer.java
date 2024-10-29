@@ -27,6 +27,8 @@ public class AquaCreeperEntityRenderer extends MobEntityRenderer<AquaCreeperEnti
     }
     protected void setupTransforms(AquaCreeperEntity aquaCreeperEntity, MatrixStack matrixStack, float f, float g, float h) {
         super.setupTransforms(aquaCreeperEntity, matrixStack, f, g, h);
+        matrixStack.translate(0, 0, 0.4);
+
         float i = 1.0F;
         float j = 1.0F;
         if (!aquaCreeperEntity.isTouchingWater()) {
