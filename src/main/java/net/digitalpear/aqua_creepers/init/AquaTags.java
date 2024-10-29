@@ -33,5 +33,4 @@ public class AquaTags {
         public static final TagKey<Biome> AQUA_CREEPER_SPAWNS = tag("aqua_creeper_spawns");
 
     }
-    BlockIte
 }
