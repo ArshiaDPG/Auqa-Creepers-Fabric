@@ -1,0 +1,9 @@
+{
+  "entity.aqua_creepers.aqua_creeper": "Aqua Creeper",
+  "item.aqua_creepers.aqua_creeper_bucket": "Bucket of Aqua Creeper",
+  "item.aqua_creepers.aqua_creeper_spawn_egg": "Aqua Creeper Spawn Egg",
+  "subtitles.aqua_creepers.aqua_creeper_hurt": "Aqua Creeper Hurts",
+  "subtitles.aqua_creepers.aqua_creeper_swim": "Aqua Creeper Swims",
+  "subtitles.aqua_creepers.underwater_explosion": "Underwater Explosion",
+  "subtitles.aqua_creepers.underwater_fuse": "Aqua Creeper Hisses"
+}

@@ -1,0 +1,30 @@
+{
+  "aqua_creeper_hurt": {
+    "category": "hostile",
+	"subtitle": "subtitles.aqua_creepers.aqua_creeper_hurt",
+    "sounds": [
+      "aqua_creepers:aqua_creeper_hurt"
+    ]
+  },
+  "aqua_creeper_swim": {
+    "category": "hostile",
+	"subtitle": "subtitles.aqua_creepers.aqua_creeper_swim",
+    "sounds": [
+      "aqua_creepers:aqua_creeper_swim"
+    ]
+  },
+  "underwater_explosion": {
+    "category": "hostile",
+	"subtitle": "subtitles.aqua_creepers.underwater_explosion",
+    "sounds": [
+      "aqua_creepers:underwater_explosion"
+    ]
+  },
+  "underwater_fuse": {
+    "category": "hostile",
+	"subtitle": "subtitles.aqua_creepers.underwater_fuse",
+    "sounds": [
+      "aqua_creepers:underwater_fuse"
+    ]
+  }
+}

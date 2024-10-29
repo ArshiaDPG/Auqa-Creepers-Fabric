@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "aqua_creepers",
+  "version": "${version}",
+
+  "name": "Aqua Creepers Refabricated",
+  "description": "THIS MOD SHOULD NOT BE RELEASED PUBLICLY, AS IT WAS NOT MADE BY THE ORIGINAL OWNERS.",
+  "authors": [
+    "DigitalPear",
+    "Edmord",
+    "MrCompost",
+    "Vadis365"
+  ],
+  "contact": {},
+  "license": "Apache-2.0",
+  "icon": "assets/aqua_creepers/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+      "fabric-datagen": [
+        "net.digitalpear.aqua_creepers.AquaCreepersDataGeneration"
+      ],
+    "client": [
+      "net.digitalpear.aqua_creepers.client.AquaCreepersClient"
+    ],
+    "main": [
+      "net.digitalpear.aqua_creepers.AquaCreepers"
+    ]
+  },
+  "mixins": [
+    "aqua_creepers.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.4",
+    "fabric": "*",
+    "minecraft": ">=1.19"
+  }
+}

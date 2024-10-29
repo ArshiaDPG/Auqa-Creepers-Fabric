@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.digitalpear.aqua_creepers.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  "CustomExplosion"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
