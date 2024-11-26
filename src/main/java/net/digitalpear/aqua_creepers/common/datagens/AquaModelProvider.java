@@ -8,8 +8,8 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.util.Identifier;
 
-public class AquaModelGen extends FabricModelProvider {
-    public AquaModelGen(FabricDataOutput output) {
+public class AquaModelProvider extends FabricModelProvider {
+    public AquaModelProvider(FabricDataOutput output) {
         super(output);
     }
 

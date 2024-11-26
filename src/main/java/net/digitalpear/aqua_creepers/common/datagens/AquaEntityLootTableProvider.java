@@ -22,8 +22,8 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.BiConsumer;
 
-public class AquaMobLootTableGen extends SimpleFabricLootTableProvider {
-    public AquaMobLootTableGen(FabricDataOutput output) {
+public class AquaEntityLootTableProvider extends SimpleFabricLootTableProvider {
+    public AquaEntityLootTableProvider(FabricDataOutput output) {
         super(output, LootContextTypes.ENTITY);
     }
 
@@ -44,7 +44,7 @@ public class AquaMobLootTableGen extends SimpleFabricLootTableProvider {
                         .pool(LootPool.builder()
                         .with(TagEntry.expandBuilder(AquaTags.Items.AQUA_CREEPER_DROP_MUSIC_DISCS))
                         .conditionally(EntityPropertiesLootCondition.builder(LootContext.EntityTarget.KILLER,
-                                EntityPredicate.Builder.create().type(EntityType.DROWNED)))));
+                                EntityPredicate.Builder.create().type(AquaTags.EntityTypes.DISC_KILLERS)))));
 
     }
 }

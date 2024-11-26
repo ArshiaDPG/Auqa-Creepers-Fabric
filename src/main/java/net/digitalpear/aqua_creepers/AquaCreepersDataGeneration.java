@@ -8,12 +8,12 @@ public class AquaCreepersDataGeneration implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(AquaBlockTagProvider::new);
+        pack.addProvider(AquaEntityTypeTagProvider::new);
         pack.addProvider(AquaItemTagProvider::new);
         pack.addProvider(AquaBiomeTagProvider::new);
 
-        pack.addProvider(AquaLanguageGen::new);
-        pack.addProvider(AquaModelGen::new);
-        pack.addProvider(AquaMobLootTableGen::new);
+        pack.addProvider(AquaLanguageProvider::new);
+        pack.addProvider(AquaModelProvider::new);
+        pack.addProvider(AquaEntityLootTableProvider::new);
     }
 }

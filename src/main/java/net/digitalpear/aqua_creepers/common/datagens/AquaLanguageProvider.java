@@ -5,8 +5,8 @@ import net.digitalpear.aqua_creepers.init.AquaItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-public class AquaLanguageGen extends FabricLanguageProvider {
-    public AquaLanguageGen(FabricDataOutput dataOutput) {
+public class AquaLanguageProvider extends FabricLanguageProvider {
+    public AquaLanguageProvider(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 
@@ -19,7 +19,7 @@ public class AquaLanguageGen extends FabricLanguageProvider {
 
         translationBuilder.add("subtitles.aqua_creepers.aqua_creeper_hurt", "Aqua Creeper Hurts");
         translationBuilder.add("subtitles.aqua_creepers.aqua_creeper_swim", "Aqua Creeper Swims");
-        translationBuilder.add("subtitles.aqua_creepers.underwater_explosion", "Underwater Explosion");
+        translationBuilder.add("subtitles.aqua_creepers.underwater_explosion", "Underwater CustomExplosion");
         translationBuilder.add("subtitles.aqua_creepers.underwater_fuse", "Aqua Creeper Hisses");
     }
 }

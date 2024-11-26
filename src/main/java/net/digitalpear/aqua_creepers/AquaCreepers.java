@@ -18,11 +18,21 @@ public class AquaCreepers implements ModInitializer {
         return Identifier.of(MOD_ID, name);
     }
 
+    /*
+        TODO:
+        -Underwater explosions that destroy blocks (really difficult since a lot of explosion code is hardcoded).
+        -Music discs that only aqua creeper drops (?)
+     */
+
     @Override
     public void onInitialize() {
         AquaCreeperEntityTypes.init();
         AquaCreeperSounds.init();
         AquaItems.init();
+
+        /*
+            Add to biomes in the "aqua_creeper_spawns" tag.
+         */
         BiomeModifications.addSpawn(BiomeSelectors.tag(AquaTags.Biomes.AQUA_CREEPER_SPAWNS), SpawnGroup.MONSTER, AquaCreeperEntityTypes.AQUA_CREEPER, 5, 1, 1);
     }
 }

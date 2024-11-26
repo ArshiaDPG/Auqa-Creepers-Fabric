@@ -2,6 +2,7 @@ package net.digitalpear.aqua_creepers.common.entities;
 
 import net.digitalpear.aqua_creepers.common.entities.entity_goals.AquaCreeperIgniteGoal;
 import net.digitalpear.aqua_creepers.common.entities.entity_goals.WaterGoals;
+import net.digitalpear.aqua_creepers.common.world.ExplosionGenerator;
 import net.digitalpear.aqua_creepers.init.AquaCreeperSounds;
 import net.digitalpear.aqua_creepers.init.AquaItems;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
@@ -21,6 +22,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -29,12 +31,11 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3f;
 
 import java.util.Collection;
 
@@ -75,7 +76,7 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
         this.goalSelector.add(3, new FleeEntityGoal<>(this, AxolotlEntity.class, 6.0f, 1.0, 2.0));
         this.goalSelector.add(4, new MeleeAttackGoal(this, 4.5, false));
         this.goalSelector.add(4, new WaterGoals(this));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 12.0f));
         this.goalSelector.add(6, new LookAroundGoal(this));
     }
 
@@ -85,7 +86,9 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
 
     public static DefaultAttributeContainer.Builder createAquaCreeperAttributes() {
         return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.2)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.1)
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 16);
     }
 
@@ -175,8 +178,25 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
                 this.explode();
             }
         }
+        spawnParticle();
 
         super.tick();
+    }
+    public void spawnParticle(){
+        if (isSubmergedInWater() && getRandom().nextBoolean()){
+            float fishWidth = getWidth() * 0.7f;
+            float fishHeight = getHeight() * 0.7f;
+            Vector3f particleDirection = getMovementDirection().getUnitVector();
+            getWorld().addParticle(ParticleTypes.BUBBLE,
+
+                    getX() - fishWidth + getRandom().nextFloat()*(fishWidth*2),
+                    getY() - fishHeight + getRandom().nextFloat()*(fishHeight*2),
+                    getZ() - fishWidth + getRandom().nextFloat()*(fishWidth*2),
+
+                    (1 - particleDirection.x) * getMovementSpeed(),
+                    (1 - particleDirection.y) * getMovementSpeed(),
+                    (1 - particleDirection.z) * getMovementSpeed());
+        }
     }
 
     @Override
@@ -264,10 +284,10 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
 
     //BOOM
     private void explode() {
-        if (!this.getWorld().isClient) {
-            float f = this.isCharged() ? 2.0f : 1.0f;
+        float f = this.isCharged() ? 2.0f : 1.0f;
+        ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, World.ExplosionSourceType.MOB);
+        if (!this.getWorld().isClient()){
             this.dead = true;
-            this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, World.ExplosionSourceType.MOB);
             this.discard();
             this.spawnEffectsCloud();
         }
@@ -353,8 +373,8 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
     }
 
     /*
-        Bucketed item
-    */
+                Bucketed item
+            */
     @Override
     public ItemStack getBucketItem() {
         return new ItemStack(AquaItems.AQUA_CREEPER_BUCKET);

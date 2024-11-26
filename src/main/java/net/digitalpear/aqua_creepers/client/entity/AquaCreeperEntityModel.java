@@ -42,7 +42,9 @@ public class AquaCreeperEntityModel<T extends AquaCreeperEntity> extends SingleP
         return TexturedModelData.of(meshdefinition, 64, 64);
     }
 
-
+    /*
+        Play swimming animation (more intense if outside water).
+     */
     @Override
     public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         float intensityMultiplier = 1.0F;

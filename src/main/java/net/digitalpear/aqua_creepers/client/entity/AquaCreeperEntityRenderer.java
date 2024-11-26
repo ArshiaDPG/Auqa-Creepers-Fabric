@@ -27,8 +27,15 @@ public class AquaCreeperEntityRenderer extends MobEntityRenderer<AquaCreeperEnti
     }
     protected void setupTransforms(AquaCreeperEntity aquaCreeperEntity, MatrixStack matrixStack, float f, float g, float h) {
         super.setupTransforms(aquaCreeperEntity, matrixStack, f, g, h);
+
+        /*
+            Centers the model.
+         */
         matrixStack.translate(0, 0, 0.4);
 
+        /*
+            Makes the fush flop around if outside of water.
+         */
         float i = 1.0F;
         float j = 1.0F;
         if (!aquaCreeperEntity.isTouchingWater()) {
@@ -44,6 +51,9 @@ public class AquaCreeperEntityRenderer extends MobEntityRenderer<AquaCreeperEnti
             matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(90.0F));
         }
 
+        /*
+            Aqua Creepers jitter when charged.
+         */
         Random random = aquaCreeperEntity.getRandom();
         if (aquaCreeperEntity.isCharged() && !aquaCreeperEntity.isIgnited() && aquaCreeperEntity.age % random.nextBetween(40, 60) == 0 && random.nextBoolean()){
             matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(random.nextBetween(-90, 90)));
@@ -51,7 +61,9 @@ public class AquaCreeperEntityRenderer extends MobEntityRenderer<AquaCreeperEnti
             matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(random.nextBetween(-90, 90)));
         }
     }
-
+    /*
+        Play animation for explosion.
+     */
     protected void scale(AquaCreeperEntity aquaCreeperEntity, MatrixStack matrixStack, float f) {
         float g = aquaCreeperEntity.getClientFuseTime(f);
         float h = 1.0F + MathHelper.sin(g * 100.0F) * g * 0.01F;
