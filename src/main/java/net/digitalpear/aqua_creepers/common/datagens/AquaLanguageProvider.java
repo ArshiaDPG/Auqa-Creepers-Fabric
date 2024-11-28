@@ -1,5 +1,6 @@
 package net.digitalpear.aqua_creepers.common.datagens;
 
+import net.digitalpear.aqua_creepers.init.AquaBlocks;
 import net.digitalpear.aqua_creepers.init.AquaCreeperEntityTypes;
 import net.digitalpear.aqua_creepers.init.AquaItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -17,9 +18,13 @@ public class AquaLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(AquaItems.AQUA_CREEPER_BUCKET, "Bucket of Aqua Creeper");
         translationBuilder.add(AquaItems.AQUA_CREEPER_SPAWN_EGG, "Aqua Creeper Spawn Egg");
 
+        translationBuilder.add(AquaBlocks.UNDERWATER_TNT, "Underwater TNT");
+        translationBuilder.add(AquaCreeperEntityTypes.UNDERWATER_TNT_MINECART, "Underwater TNT Minecart");
+        translationBuilder.add(AquaItems.UNDERWATER_TNT_MINECART, "Underwater TNT Minecart");
+
         translationBuilder.add("subtitles.aqua_creepers.aqua_creeper_hurt", "Aqua Creeper Hurts");
         translationBuilder.add("subtitles.aqua_creepers.aqua_creeper_swim", "Aqua Creeper Swims");
-        translationBuilder.add("subtitles.aqua_creepers.underwater_explosion", "Underwater CustomExplosion");
+        translationBuilder.add("subtitles.aqua_creepers.underwater_explosion", "Underwater Explosion");
         translationBuilder.add("subtitles.aqua_creepers.underwater_fuse", "Aqua Creeper Hisses");
     }
 }

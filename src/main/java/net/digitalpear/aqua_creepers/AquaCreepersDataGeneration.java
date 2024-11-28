@@ -14,6 +14,9 @@ public class AquaCreepersDataGeneration implements DataGeneratorEntrypoint {
 
         pack.addProvider(AquaLanguageProvider::new);
         pack.addProvider(AquaModelProvider::new);
+        pack.addProvider(AquaRecipeProvider::new);
+
         pack.addProvider(AquaEntityLootTableProvider::new);
+        pack.addProvider(AquaBlockLootTableProvider::new);
     }
 }

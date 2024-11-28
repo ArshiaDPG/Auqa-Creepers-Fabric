@@ -1,9 +1,6 @@
 package net.digitalpear.aqua_creepers;
 
-import net.digitalpear.aqua_creepers.init.AquaCreeperEntityTypes;
-import net.digitalpear.aqua_creepers.init.AquaCreeperSounds;
-import net.digitalpear.aqua_creepers.init.AquaItems;
-import net.digitalpear.aqua_creepers.init.AquaTags;
+import net.digitalpear.aqua_creepers.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -20,7 +17,6 @@ public class AquaCreepers implements ModInitializer {
 
     /*
         TODO:
-        -Underwater explosions that destroy blocks (really difficult since a lot of explosion code is hardcoded).
         -Music discs that only aqua creeper drops (?)
      */
 
@@ -28,6 +24,7 @@ public class AquaCreepers implements ModInitializer {
     public void onInitialize() {
         AquaCreeperEntityTypes.init();
         AquaCreeperSounds.init();
+        AquaBlocks.init();
         AquaItems.init();
 
         /*

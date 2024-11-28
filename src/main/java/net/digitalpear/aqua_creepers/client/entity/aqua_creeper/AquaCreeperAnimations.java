@@ -1,4 +1,4 @@
-package net.digitalpear.aqua_creepers.client.entity;
+package net.digitalpear.aqua_creepers.client.entity.aqua_creeper;
 
 import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.animation.AnimationHelper;

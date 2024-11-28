@@ -1,3 +1,7 @@
-// 1.20.1	2024-11-05T12:42:24.1923496	Aqua Creepers Refabricated/Model Definitions
+// 1.20.1	2024-11-28T12:14:37.0388411	Aqua Creepers Refabricated/Model Definitions
+56df30ac070f216a90383cc50ceba392a99a41a1 assets\aqua_creepers\blockstates\underwater_tnt.json
 183fd45f6714525d31c94d0b2ffcb8b59be774bb assets\aqua_creepers\models\item\aqua_creeper_bucket.json
+2d7350799d270fb14e0a05afe7f1ee1a955fde4a assets\aqua_creepers\models\item\underwater_tnt.json
+f7d439f1ca6a24b2cf41115d23ceaac58bce64e2 assets\aqua_creepers\models\block\underwater_tnt.json
+fc60910833feb503792c8b59b265483af859a232 assets\aqua_creepers\models\item\underwater_tnt_minecart.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets\aqua_creepers\models\item\aqua_creeper_spawn_egg.json

@@ -31,7 +31,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.*;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -42,7 +44,6 @@ import java.util.Collection;
 
 @SuppressWarnings("unused")
 public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, Monster {
-
     private static final TrackedData<Integer> FUSE_SPEED = DataTracker.registerData(AquaCreeperEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Boolean> CHARGED = DataTracker.registerData(AquaCreeperEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Boolean> IGNITED = DataTracker.registerData(AquaCreeperEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -284,8 +285,13 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
 
     //BOOM
     private void explode() {
-        float f = this.isCharged() ? 2.0f : 1.0f;
-        ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, World.ExplosionSourceType.MOB);
+        float explosionPower = this.isCharged() ? 2.0f : 1.0f;
+
+        if (this.isSubmergedInWater()){
+            explosionPower *= 2;
+        }
+
+        ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * explosionPower, World.ExplosionSourceType.MOB);
         if (!this.getWorld().isClient()){
             this.dead = true;
             this.discard();
@@ -373,8 +379,8 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
     }
 
     /*
-                Bucketed item
-            */
+        Bucketed item
+     */
     @Override
     public ItemStack getBucketItem() {
         return new ItemStack(AquaItems.AQUA_CREEPER_BUCKET);
@@ -387,6 +393,7 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
         nbtCompound.putBoolean("FromBucket", true);
         nbtCompound.putBoolean("Charged", this.isCharged());
     }
+
 
     @Override
     public void copyDataFromNbt(NbtCompound nbt) {

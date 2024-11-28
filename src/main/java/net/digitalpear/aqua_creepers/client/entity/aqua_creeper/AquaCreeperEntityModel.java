@@ -1,4 +1,4 @@
-package net.digitalpear.aqua_creepers.client.entity;
+package net.digitalpear.aqua_creepers.client.entity.aqua_creeper;
 
 import net.digitalpear.aqua_creepers.common.entities.AquaCreeperEntity;
 import net.fabricmc.api.EnvType;

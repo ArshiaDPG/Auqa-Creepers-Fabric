@@ -1,7 +1,9 @@
 package net.digitalpear.aqua_creepers.init;
 
 import net.digitalpear.aqua_creepers.AquaCreepers;
+import net.digitalpear.aqua_creepers.common.items.CustomMinecartItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -21,7 +23,18 @@ public class AquaItems {
     public static final Item AQUA_CREEPER_SPAWN_EGG = createItem("aqua_creeper_spawn_egg", new SpawnEggItem(AquaCreeperEntityTypes.AQUA_CREEPER,
             7329243, 13365225,
             new Item.Settings()));
+
+    public static final Item UNDERWATER_TNT_MINECART = createItem("underwater_tnt_minecart", new CustomMinecartItem(new Item.Settings().maxCount(1)));
+
+
     public static void init(){
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+            entries.addAfter(Items.TNT, AquaBlocks.UNDERWATER_TNT);
+            entries.addAfter(Items.TNT_MINECART, UNDERWATER_TNT_MINECART);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+            entries.addAfter(Items.TNT, AquaBlocks.UNDERWATER_TNT);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addAfter(Items.ALLAY_SPAWN_EGG, AQUA_CREEPER_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.TADPOLE_BUCKET, AQUA_CREEPER_BUCKET));
     }

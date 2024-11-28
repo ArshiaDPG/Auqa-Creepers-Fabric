@@ -6,27 +6,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import net.minecraft.world.explosion.ExplosionBehavior;
 import org.jetbrains.annotations.Nullable;
 
 public class ExplosionGenerator {
     public static CustomExplosion createExplosion(World world, @Nullable Entity entity, double x, double y, double z, float power, World.ExplosionSourceType explosionSourceType) {
-        return ExplosionGenerator.createExplosion(world, entity, null, null, x, y, z, power, false, explosionSourceType);
+        return ExplosionGenerator.createExplosion(world, entity, x, y, z, power, explosionSourceType, true);
     }
 
-    public static CustomExplosion createExplosion(World world, @Nullable Entity entity, double x, double y, double z, float power, boolean createFire, World.ExplosionSourceType explosionSourceType) {
-        return ExplosionGenerator.createExplosion(world, entity, null, null, x, y, z, power, createFire, explosionSourceType);
-    }
-
-    public static CustomExplosion createExplosion(World world, @Nullable Entity entity, @Nullable DamageSource damageSource, @Nullable ExplosionBehavior behavior, Vec3d pos, float power, boolean createFire, World.ExplosionSourceType explosionSourceType) {
-        return ExplosionGenerator.createExplosion(world, entity, damageSource, behavior, pos.getX(), pos.getY(), pos.getZ(), power, createFire, explosionSourceType);
-    }
-
-    public static CustomExplosion createExplosion(World world, @Nullable Entity entity, @Nullable DamageSource damageSource, @Nullable ExplosionBehavior behavior, double x, double y, double z, float power, boolean createFire, World.ExplosionSourceType explosionSourceType) {
-        return ExplosionGenerator.createExplosion(world, entity, damageSource, behavior, x, y, z, power, createFire, explosionSourceType, true);
-    }
-
-    public static CustomExplosion createExplosion(World world, @Nullable Entity entity, @Nullable DamageSource damageSource, @Nullable ExplosionBehavior behavior, double x, double y, double z, float power, boolean createFire, World.ExplosionSourceType explosionSourceType, boolean particles) {
+    public static CustomExplosion createExplosion(World world, @Nullable Entity entity, double x, double y, double z, float power, World.ExplosionSourceType explosionSourceType, boolean particles) {
         CustomExplosion.DestructionType destructionType = switch (explosionSourceType) {
             case NONE -> CustomExplosion.DestructionType.KEEP;
             case BLOCK -> ExplosionGenerator.getDestructionType(world, GameRules.BLOCK_EXPLOSION_DROP_DECAY);
@@ -35,7 +22,7 @@ public class ExplosionGenerator {
             case TNT -> ExplosionGenerator.getDestructionType(world, GameRules.TNT_EXPLOSION_DROP_DECAY);
         };
 
-        CustomExplosion explosion = new CustomExplosion(world, entity, damageSource, behavior, x, y, z, power, createFire, destructionType);
+        CustomExplosion explosion = new CustomExplosion(world, entity, x, y, z, power, destructionType);
         explosion.collectBlocksAndDamageEntities();
         explosion.affectWorld(particles);
         return explosion;
