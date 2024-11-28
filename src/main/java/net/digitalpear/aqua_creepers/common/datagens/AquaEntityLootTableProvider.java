@@ -1,6 +1,7 @@
 package net.digitalpear.aqua_creepers.common.datagens;
 
 import net.digitalpear.aqua_creepers.AquaCreepers;
+import net.digitalpear.aqua_creepers.init.AquaItems;
 import net.digitalpear.aqua_creepers.init.AquaTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
@@ -34,7 +35,7 @@ public class AquaEntityLootTableProvider extends SimpleFabricLootTableProvider {
                         /*
                             Defalt gunpowder drops
                         */
-                        .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(ItemEntry.builder(Items.GUNPOWDER)
+                        .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F)).with(ItemEntry.builder(AquaItems.OCEAN_SODIUM)
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0.0F, 2.0F)))
                         .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0F, 1.0F)))))
 

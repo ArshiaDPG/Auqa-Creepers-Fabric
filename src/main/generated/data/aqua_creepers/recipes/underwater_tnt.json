@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "minecraft:tnt"
+    },
+    "X": {
+      "item": "aqua_creepers:ocean_sodium"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "result": {
+    "count": 2,
+    "item": "aqua_creepers:underwater_tnt"
+  },
+  "show_notification": true
+}

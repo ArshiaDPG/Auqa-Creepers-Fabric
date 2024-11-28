@@ -27,6 +27,10 @@ public class AquaBiomeTagProvider extends FabricTagProvider<Biome> {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(AquaTags.Biomes.AQUA_CREEPER_SPAWNS).forceAddTag(BiomeTags.IS_DEEP_OCEAN).add(BiomeKeys.DRIPSTONE_CAVES);
+        getOrCreateTagBuilder(AquaTags.Biomes.AQUA_CREEPER_SPAWNS)
+                .forceAddTag(BiomeTags.IS_RIVER)
+                .forceAddTag(BiomeTags.IS_OCEAN)
+                .forceAddTag(BiomeTags.IS_DEEP_OCEAN)
+                .add(BiomeKeys.DRIPSTONE_CAVES);
     }
 }

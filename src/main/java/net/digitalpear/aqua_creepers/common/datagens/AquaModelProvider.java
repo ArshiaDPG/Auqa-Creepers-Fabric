@@ -26,5 +26,6 @@ public class AquaModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(AquaItems.AQUA_CREEPER_BUCKET, Models.GENERATED);
         itemModelGenerator.register(AquaItems.UNDERWATER_TNT_MINECART, Models.GENERATED);
+        itemModelGenerator.register(AquaItems.OCEAN_SODIUM, Models.GENERATED);
     }
 }

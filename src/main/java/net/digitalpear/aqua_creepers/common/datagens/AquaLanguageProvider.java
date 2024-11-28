@@ -22,6 +22,8 @@ public class AquaLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(AquaCreeperEntityTypes.UNDERWATER_TNT_MINECART, "Underwater TNT Minecart");
         translationBuilder.add(AquaItems.UNDERWATER_TNT_MINECART, "Underwater TNT Minecart");
 
+        translationBuilder.add(AquaItems.OCEAN_SODIUM, "Ocean Sodium");
+
         translationBuilder.add("subtitles.aqua_creepers.aqua_creeper_hurt", "Aqua Creeper Hurts");
         translationBuilder.add("subtitles.aqua_creepers.aqua_creeper_swim", "Aqua Creeper Swims");
         translationBuilder.add("subtitles.aqua_creepers.underwater_explosion", "Underwater Explosion");

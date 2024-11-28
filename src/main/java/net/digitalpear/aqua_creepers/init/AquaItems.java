@@ -26,8 +26,12 @@ public class AquaItems {
 
     public static final Item UNDERWATER_TNT_MINECART = createItem("underwater_tnt_minecart", new CustomMinecartItem(new Item.Settings().maxCount(1)));
 
+    public static final Item OCEAN_SODIUM = createItem("ocean_sodium", new Item(new Item.Settings()));
 
     public static void init(){
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.addAfter(Items.GUNPOWDER, OCEAN_SODIUM);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
             entries.addAfter(Items.TNT, AquaBlocks.UNDERWATER_TNT);
             entries.addAfter(Items.TNT_MINECART, UNDERWATER_TNT_MINECART);
