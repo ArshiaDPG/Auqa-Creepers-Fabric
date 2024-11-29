@@ -23,9 +23,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
 public class CustomMinecartItem extends Item {
-
-
-
     public CustomMinecartItem(Item.Settings settings) {
         super(settings);
         DispenserBlock.registerBehavior(this, DISPENSER_BEHAVIOR);
@@ -56,7 +53,7 @@ public class CustomMinecartItem extends Item {
                 }
 
                 BlockState blockState2 = world.getBlockState(blockPos.down());
-                RailShape railShape2 = blockState2.getBlock() instanceof AbstractRailBlock ? (RailShape)blockState2.get(((AbstractRailBlock)blockState2.getBlock()).getShapeProperty()) : RailShape.NORTH_SOUTH;
+                RailShape railShape2 = blockState2.getBlock() instanceof AbstractRailBlock ? blockState2.get(((AbstractRailBlock)blockState2.getBlock()).getShapeProperty()) : RailShape.NORTH_SOUTH;
                 if (direction != Direction.DOWN && railShape2.isAscending()) {
                     g = -0.4;
                 } else {
@@ -79,9 +76,6 @@ public class CustomMinecartItem extends Item {
         }
     };
 
-
-
-
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
@@ -91,18 +85,18 @@ public class CustomMinecartItem extends Item {
         } else {
             ItemStack itemStack = context.getStack();
             if (!world.isClient) {
-                RailShape railShape = blockState.getBlock() instanceof AbstractRailBlock ? (RailShape)blockState.get(((AbstractRailBlock)blockState.getBlock()).getShapeProperty()) : RailShape.NORTH_SOUTH;
+                RailShape railShape = blockState.getBlock() instanceof AbstractRailBlock ? blockState.get(((AbstractRailBlock)blockState.getBlock()).getShapeProperty()) : RailShape.NORTH_SOUTH;
                 double d = 0.0;
                 if (railShape.isAscending()) {
                     d = 0.5;
                 }
 
-                UnderwaterTntMinecartEntity abstractMinecartEntity = UnderwaterTntMinecartEntity.createUnderwaterTntMinecartEntity(world, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.0625 + d, (double)blockPos.getZ() + 0.5);
+                UnderwaterTntMinecartEntity minecartEntity = UnderwaterTntMinecartEntity.createUnderwaterTntMinecartEntity(world, (double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.0625 + d, (double)blockPos.getZ() + 0.5);
                 if (itemStack.hasCustomName()) {
-                    abstractMinecartEntity.setCustomName(itemStack.getName());
+                    minecartEntity.setCustomName(itemStack.getName());
                 }
 
-                world.spawnEntity(abstractMinecartEntity);
+                world.spawnEntity(minecartEntity);
                 world.emitGameEvent(GameEvent.ENTITY_PLACE, blockPos, GameEvent.Emitter.of(context.getPlayer(), world.getBlockState(blockPos.down())));
             }
 

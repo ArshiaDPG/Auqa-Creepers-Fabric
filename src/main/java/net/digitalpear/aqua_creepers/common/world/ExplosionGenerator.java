@@ -1,5 +1,7 @@
 package net.digitalpear.aqua_creepers.common.world;
 
+import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.math.Vec3d;
@@ -21,13 +23,11 @@ public class ExplosionGenerator {
                     world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? ExplosionGenerator.getDestructionType(world, GameRules.MOB_EXPLOSION_DROP_DECAY) : Explosion.DestructionType.KEEP;
             case TNT -> ExplosionGenerator.getDestructionType(world, GameRules.TNT_EXPLOSION_DROP_DECAY);
         };
-
         CustomExplosion explosion = new CustomExplosion(world, entity, x, y, z, power, destructionType);
         explosion.collectBlocksAndDamageEntities();
         explosion.affectWorld(particles);
         return explosion;
     }
-
 
     private static Explosion.DestructionType getDestructionType(World world, GameRules.Key<GameRules.BooleanRule> gameRuleKey) {
         return world.getGameRules().getBoolean(gameRuleKey) ? Explosion.DestructionType.DESTROY_WITH_DECAY : Explosion.DestructionType.DESTROY;

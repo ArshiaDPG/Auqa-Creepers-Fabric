@@ -4,6 +4,8 @@ import net.digitalpear.aqua_creepers.common.world.ExplosionGenerator;
 import net.digitalpear.aqua_creepers.init.AquaBlocks;
 import net.digitalpear.aqua_creepers.init.AquaCreeperEntityTypes;
 import net.digitalpear.aqua_creepers.init.AquaItems;
+import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
@@ -41,12 +43,13 @@ public class UnderwaterTntMinecartEntity extends TntMinecartEntity{
 
     @Override
     protected void explode(@Nullable DamageSource damageSource, double power) {
+        double d = Math.sqrt(power);
+        if (d > 5.0) {
+            d = 5.0;
+        }
+        float explosionPower = (float)(4.0 + this.random.nextDouble() * 1.5 * d);
+        ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getY(), this.getZ(), explosionPower, World.ExplosionSourceType.TNT);
         if (!this.getWorld().isClient) {
-            double d = Math.sqrt(power);
-            if (d > 5.0) {
-                d = 5.0;
-            }
-            ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getY(), this.getZ(), (float)(4.0 + this.random.nextDouble() * 1.5 * d), World.ExplosionSourceType.TNT);
             this.discard();
         }
     }

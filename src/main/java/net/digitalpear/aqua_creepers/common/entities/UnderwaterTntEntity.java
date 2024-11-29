@@ -2,6 +2,8 @@ package net.digitalpear.aqua_creepers.common.entities;
 
 import net.digitalpear.aqua_creepers.common.world.ExplosionGenerator;
 import net.digitalpear.aqua_creepers.init.AquaCreeperEntityTypes;
+import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.*;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
@@ -48,9 +50,7 @@ public class UnderwaterTntEntity extends TntEntity {
         this.setFuse(i);
         if (i <= 0) {
             this.discard();
-            if (!this.getWorld().isClient) {
-                this.explode();
-            }
+            this.explode();
         } else {
             this.updateWaterState();
             if (this.getWorld().isClient) {
@@ -65,8 +65,9 @@ public class UnderwaterTntEntity extends TntEntity {
         return this.causingEntity;
     }
 
+
     public void explode() {
-        float f = 4.0F;
-        ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getBodyY(0.0625), this.getZ(), f, World.ExplosionSourceType.TNT);
+        float explosionPower = 4.0F;
+        ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getBodyY(0.0625), this.getZ(), explosionPower, World.ExplosionSourceType.TNT);
     }
 }

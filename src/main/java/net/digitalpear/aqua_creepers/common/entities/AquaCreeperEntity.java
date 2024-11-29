@@ -5,6 +5,8 @@ import net.digitalpear.aqua_creepers.common.entities.entity_goals.WaterGoals;
 import net.digitalpear.aqua_creepers.common.world.ExplosionGenerator;
 import net.digitalpear.aqua_creepers.init.AquaCreeperSounds;
 import net.digitalpear.aqua_creepers.init.AquaItems;
+import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -286,11 +288,6 @@ public class AquaCreeperEntity extends FishEntity implements SkinOverlayOwner, M
     //BOOM
     private void explode() {
         float explosionPower = this.isCharged() ? 2.0f : 1.0f;
-
-        if (this.isSubmergedInWater()){
-            explosionPower *= 2;
-        }
-
         ExplosionGenerator.createExplosion(getWorld(), this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * explosionPower, World.ExplosionSourceType.MOB);
         if (!this.getWorld().isClient()){
             this.dead = true;

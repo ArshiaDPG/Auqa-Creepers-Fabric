@@ -20,6 +20,12 @@ public class AquaCreepers implements ModInitializer {
         -Music discs that only aqua creeper drops (?)
      */
 
+    /*
+        KNOWN ISSUES:
+        -Explosion particles do not appear sometimes.
+        -Vanilla particles still appear when Explosion Enhancement is installed.
+     */
+
     @Override
     public void onInitialize() {
         AquaCreeperEntityTypes.init();

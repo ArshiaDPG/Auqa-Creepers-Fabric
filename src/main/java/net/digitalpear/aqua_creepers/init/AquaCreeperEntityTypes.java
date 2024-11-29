@@ -32,7 +32,7 @@ public class AquaCreeperEntityTypes {
             .dimensions(EntityDimensions.fixed(0.98F, 0.7F))
             .trackRangeChunks(8));
 
-
+    
     private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> type) {
         return Registry.register(Registries.ENTITY_TYPE, AquaCreepers.id(id), type.build());
     }
