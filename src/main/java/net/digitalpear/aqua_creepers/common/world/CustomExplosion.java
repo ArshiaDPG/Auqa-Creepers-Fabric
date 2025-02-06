@@ -4,8 +4,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
-import net.fabricmc.loader.api.FabricLoader;
+import net.digitalpear.aqua_creepers.init.data.ModCompat;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -31,7 +30,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import net.superkat.explosiveenhancement.api.ExplosiveApi;
 
 import java.util.Iterator;
 import java.util.List;
@@ -188,16 +186,18 @@ public class CustomExplosion extends Explosion {
     public void affectWorld(boolean boolean_1) {
         this.world.playSound(null, this.x, this.y, this.z, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
         boolean shouldDropLoot = this.destructionType != DestructionType.KEEP;
-        if (!ExplosiveCompat.isEELoaded()){
-            if (this.power >= 2.0F && shouldDropLoot) {
-                this.world.addParticle(ParticleTypes.EXPLOSION_EMITTER, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D);
-            } else {
-                this.world.addParticle(ParticleTypes.EXPLOSION, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D);
-            }
+        if (this.world.isClient()){
+            if (!ModCompat.isEELoaded()){
+                if (this.power >= 2.0F && shouldDropLoot) {
+                    this.world.addParticle(ParticleTypes.EXPLOSION_EMITTER, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D);
+                } else {
+                    this.world.addParticle(ParticleTypes.EXPLOSION, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D);
+                }
 
-        }
-        else {
-            ExplosiveCompat.spawnParticles(world, x, y, z, power, true, true);
+            }
+            else {
+                ModCompat.spawnParticles(world, x, y, z, power, true, this.destructionType != DestructionType.KEEP);
+            }
         }
         Iterator<BlockPos> affectedBlocks;
         BlockPos blockPos;

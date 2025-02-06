@@ -5,8 +5,6 @@ import net.digitalpear.aqua_creepers.common.entities.entity_goals.WaterGoals;
 import net.digitalpear.aqua_creepers.common.world.ExplosionGenerator;
 import net.digitalpear.aqua_creepers.init.AquaCreeperSounds;
 import net.digitalpear.aqua_creepers.init.AquaItems;
-import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;

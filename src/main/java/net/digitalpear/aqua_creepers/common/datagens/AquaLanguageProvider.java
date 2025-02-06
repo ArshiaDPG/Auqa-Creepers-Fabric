@@ -15,6 +15,7 @@ public class AquaLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder translationBuilder) {
         translationBuilder.add(AquaCreeperEntityTypes.AQUA_CREEPER, "Aqua Creeper");
 
+        translationBuilder.add(AquaItems.AQUA_CREEPER, "Aqua Creeper");
         translationBuilder.add(AquaItems.AQUA_CREEPER_BUCKET, "Bucket of Aqua Creeper");
         translationBuilder.add(AquaItems.AQUA_CREEPER_SPAWN_EGG, "Aqua Creeper Spawn Egg");
 

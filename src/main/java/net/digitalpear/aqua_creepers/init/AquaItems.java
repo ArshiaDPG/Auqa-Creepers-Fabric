@@ -1,6 +1,7 @@
 package net.digitalpear.aqua_creepers.init;
 
 import net.digitalpear.aqua_creepers.AquaCreepers;
+import net.digitalpear.aqua_creepers.common.items.AquaCreeperItem;
 import net.digitalpear.aqua_creepers.common.items.CustomMinecartItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
@@ -28,6 +29,7 @@ public class AquaItems {
 
     public static final Item OCEAN_SODIUM = createItem("ocean_sodium", new Item(new Item.Settings()));
 
+    public static final Item AQUA_CREEPER = createItem("aqua_creeper", new AquaCreeperItem(new Item.Settings().food(FoodComponents.COD)));
     public static void init(){
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.GUNPOWDER, OCEAN_SODIUM);
@@ -38,6 +40,9 @@ public class AquaItems {
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
             entries.addAfter(Items.TNT, AquaBlocks.UNDERWATER_TNT);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+            entries.addAfter(Items.PUFFERFISH, AQUA_CREEPER);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addAfter(Items.ALLAY_SPAWN_EGG, AQUA_CREEPER_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> entries.addAfter(Items.TADPOLE_BUCKET, AQUA_CREEPER_BUCKET));

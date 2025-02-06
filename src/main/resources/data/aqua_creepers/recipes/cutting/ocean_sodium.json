@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "aqua_creepers:aqua_creeper"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  },
+  "result": [
+    {
+      "item": "aqua_creepers:ocean_sodium",
+      "count": 2
+    }
+  ],
+     "fabric:load_conditions": [
+         {
+           "condition": "fabric:all_mods_loaded",
+           "values": [
+             "farmersdelight"
+           ]
+         }
+       ]
+}

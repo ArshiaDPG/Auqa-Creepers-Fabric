@@ -30,7 +30,6 @@ public class CustomMinecartItem extends Item {
 
     private static final DispenserBehavior DISPENSER_BEHAVIOR = new ItemDispenserBehavior() {
         private final ItemDispenserBehavior defaultBehavior = new ItemDispenserBehavior();
-
         public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
             Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
             World world = pointer.getWorld();

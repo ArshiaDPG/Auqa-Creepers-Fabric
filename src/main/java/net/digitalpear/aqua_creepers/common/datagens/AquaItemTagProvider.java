@@ -27,5 +27,6 @@ public class AquaItemTagProvider extends FabricTagProvider<Item> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(AquaTags.Items.AQUA_CREEPER_DROP_MUSIC_DISCS).forceAddTag(ItemTags.CREEPER_DROP_MUSIC_DISCS);
+        getOrCreateTagBuilder(AquaTags.Items.KNIVES);
     }
 }

@@ -1,10 +1,6 @@
 package net.digitalpear.aqua_creepers.common.world;
 
-import net.digitalpear.aqua_creepers.init.data.ExplosiveCompat;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
@@ -19,8 +15,7 @@ public class ExplosionGenerator {
         CustomExplosion.DestructionType destructionType = switch (explosionSourceType) {
             case NONE -> CustomExplosion.DestructionType.KEEP;
             case BLOCK -> ExplosionGenerator.getDestructionType(world, GameRules.BLOCK_EXPLOSION_DROP_DECAY);
-            case MOB ->
-                    world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? ExplosionGenerator.getDestructionType(world, GameRules.MOB_EXPLOSION_DROP_DECAY) : Explosion.DestructionType.KEEP;
+            case MOB -> world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? ExplosionGenerator.getDestructionType(world, GameRules.MOB_EXPLOSION_DROP_DECAY) : Explosion.DestructionType.KEEP;
             case TNT -> ExplosionGenerator.getDestructionType(world, GameRules.TNT_EXPLOSION_DROP_DECAY);
         };
         CustomExplosion explosion = new CustomExplosion(world, entity, x, y, z, power, destructionType);
