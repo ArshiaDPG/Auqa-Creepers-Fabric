@@ -1,4 +1,4 @@
-package net.digitalpear.aqua_creepers.common.datagens;
+package net.digitalpear.aqua_creepers.common.datagens.tags;
 
 import net.digitalpear.aqua_creepers.init.AquaTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

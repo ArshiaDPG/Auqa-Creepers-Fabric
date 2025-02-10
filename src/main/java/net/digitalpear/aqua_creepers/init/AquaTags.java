@@ -1,6 +1,7 @@
 package net.digitalpear.aqua_creepers.init;
 
 import net.digitalpear.aqua_creepers.AquaCreepers;
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registry;
@@ -17,6 +18,16 @@ public class AquaTags {
     private static <T> TagKey<T> tag(Identifier name, RegistryKey<? extends Registry<T>> key){
         return TagKey.of(key, name);
     }
+
+    public static class Blocks{
+        private static TagKey<Block> tag(String name){
+            return AquaTags.tag(name, RegistryKeys.BLOCK);
+        }
+
+        public static final TagKey<Block> WATER_CAMPFIRE_SIGNAL_BOOSTERS = tag("water_campfire_signal_boosters");
+
+    }
+
     public static class EntityTypes {
         private static TagKey<EntityType<?>> tag(String name){
             return AquaTags.tag(name, RegistryKeys.ENTITY_TYPE);
@@ -33,6 +44,7 @@ public class AquaTags {
         }
 
         public static final TagKey<Item> AQUA_CREEPER_DROP_MUSIC_DISCS = tag("aqua_creeper_drop_music_discs");
+        public static final TagKey<Item> GRANTS_UNDERWATER_COOKING_ADVANCEMENT = tag("grants_underwater_cooking_advancement");
         public static final TagKey<Item> KNIVES = tag(Identifier.of("c", "tools/knives"));
     }
 
@@ -44,7 +56,5 @@ public class AquaTags {
             return AquaTags.tag(name, RegistryKeys.BIOME);
         }
         public static final TagKey<Biome> AQUA_CREEPER_SPAWNS = tag("aqua_creeper_spawns");
-
-
     }
 }

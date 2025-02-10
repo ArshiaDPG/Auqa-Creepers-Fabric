@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_torch",
+  "textures": {
+    "torch": "aqua_creepers:block/ocean_torch"
+  }
+}

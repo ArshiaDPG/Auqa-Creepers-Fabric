@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:coral_blocks",
+    "minecraft:wet_sponge"
+  ]
+}

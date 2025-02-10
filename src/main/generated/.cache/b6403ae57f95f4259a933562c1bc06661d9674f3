@@ -1,5 +1,11 @@
-// 1.20.1	2025-01-10T16:42:40.0560447	Aqua Creepers Refabricated/Recipes
+// 1.20.1	2025-02-10T09:40:30.8989661	Aqua Creepers Refabricated/Recipes
 4ed7707c87f444c35d54ddb26314aab47481b653 data\aqua_creepers\advancements\recipes\redstone\underwater_tnt.json
+8fca69f99de0bfe1aeee959f38446db5235e2511 data\aqua_creepers\recipes\ocean_torch.json
+1c0b4b28d1ce08c19fe7d5c882bfc86324f245bc data\aqua_creepers\advancements\recipes\decorations\ocean_lantern.json
 d50451c4551c47449849cb24e453553457f3b682 data\aqua_creepers\recipes\underwater_tnt_minecart.json
+a0c1a8b8ca24f6d1970796848678ba26d81d0a95 data\aqua_creepers\advancements\recipes\decorations\ocean_torch.json
 74add4dc29d776be5702598f80129ecd62d11228 data\aqua_creepers\advancements\recipes\transportation\underwater_tnt_minecart.json
+48c8e2b5fdb66db7f78fb6feb7fafd8e70053c6e data\aqua_creepers\recipes\ocean_lantern.json
 0032672314557fcbe0272ff26a74024a80e97ad7 data\aqua_creepers\recipes\underwater_tnt.json
+3dc0806336f3f538f5e52de952b56e04259fd454 data\aqua_creepers\recipes\ocean_campfire.json
+c07d8519835c29576eba83269fea1a611ef3888e data\aqua_creepers\advancements\recipes\decorations\ocean_campfire.json

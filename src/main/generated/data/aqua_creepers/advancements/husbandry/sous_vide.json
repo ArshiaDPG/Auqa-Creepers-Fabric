@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "cook_fish_on_ocean_campfire": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "aqua_creepers:ocean_campfire"
+                ],
+                "state": {
+                  "lit": "true",
+                  "waterlogged": "true"
+                }
+              },
+              "fluid": {
+                "fluid": "minecraft:water"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "tag": "aqua_creepers:grants_underwater_cooking_advancement"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.husbandry.sous_vide.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aqua_creepers:ocean_campfire"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.husbandry.sous_vide.title"
+    }
+  },
+  "requirements": [
+    [
+      "cook_fish_on_ocean_campfire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

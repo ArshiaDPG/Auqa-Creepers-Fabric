@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "aqua_creepers:block/ocean_torch_off"
+    },
+    "lit=true": {
+      "model": "aqua_creepers:block/ocean_torch"
+    }
+  }
+}

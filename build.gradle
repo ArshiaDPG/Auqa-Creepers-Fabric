@@ -18,8 +18,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modApi("maven.modrinth:explosive-enhancement:${project.ee_version}")
-//    modApi("maven.modrinth:farmers-delight-refabricated:${project.fd_version}")
-//    modApi("maven.modrinth:porting_lib:${project.porting_lib_version}")
+//    modApi("maven.modrinth:creeper-overhaul:${project.co_version}")
+
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 

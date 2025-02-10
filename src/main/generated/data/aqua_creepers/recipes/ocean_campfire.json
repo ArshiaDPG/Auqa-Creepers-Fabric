@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "aqua_creepers:ocean_sodium"
+    },
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " S ",
+    "SCS",
+    "LLL"
+  ],
+  "result": {
+    "item": "aqua_creepers:ocean_campfire"
+  },
+  "show_notification": true
+}

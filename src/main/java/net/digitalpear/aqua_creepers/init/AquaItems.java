@@ -10,6 +10,7 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Direction;
 
 public class AquaItems {
 
@@ -30,7 +31,14 @@ public class AquaItems {
     public static final Item OCEAN_SODIUM = createItem("ocean_sodium", new Item(new Item.Settings()));
 
     public static final Item AQUA_CREEPER = createItem("aqua_creeper", new AquaCreeperItem(new Item.Settings().food(FoodComponents.COD)));
+
+    public static final Item OCEAN_TORCH = createItem("ocean_torch", new VerticallyAttachableBlockItem(AquaBlocks.OCEAN_TORCH, AquaBlocks.OCEAN_WALL_TORCH, new Item.Settings(), Direction.DOWN));
     public static void init(){
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.addAfter(Items.TORCH, OCEAN_TORCH);
+            entries.addAfter(Items.LANTERN, AquaBlocks.OCEAN_LANTERN);
+            entries.addAfter(Items.CAMPFIRE, AquaBlocks.OCEAN_CAMPFIRE);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.GUNPOWDER, OCEAN_SODIUM);
         });

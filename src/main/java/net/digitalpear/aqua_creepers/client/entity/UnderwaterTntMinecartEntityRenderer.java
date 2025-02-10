@@ -2,6 +2,8 @@ package net.digitalpear.aqua_creepers.client.entity;
 
 import net.digitalpear.aqua_creepers.client.AquaCreepersClient;
 import net.digitalpear.aqua_creepers.common.entities.UnderwaterTntMinecartEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -10,7 +12,7 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MinecartEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
-
+@Environment(EnvType.CLIENT)
 public class UnderwaterTntMinecartEntityRenderer extends MinecartEntityRenderer<UnderwaterTntMinecartEntity> {
     private final BlockRenderManager tntBlockRenderManager;
 

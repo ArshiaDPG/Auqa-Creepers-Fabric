@@ -1,4 +1,9 @@
 {
+  "advancement.husbandry.sous_vide.desc": "Cook fish using a lit Sodium Campfire.",
+  "advancement.husbandry.sous_vide.title": "Sous Vide",
+  "block.aqua_creepers.ocean_campfire": "Ocean Campfire",
+  "block.aqua_creepers.ocean_lantern": "Ocean Lantern",
+  "block.aqua_creepers.ocean_torch": "Ocean Torch",
   "block.aqua_creepers.underwater_tnt": "Underwater TNT",
   "entity.aqua_creepers.aqua_creeper": "Aqua Creeper",
   "entity.aqua_creepers.underwater_tnt_minecart": "Underwater TNT Minecart",

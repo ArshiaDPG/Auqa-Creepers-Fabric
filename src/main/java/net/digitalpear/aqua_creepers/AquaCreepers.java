@@ -36,6 +36,6 @@ public class AquaCreepers implements ModInitializer {
         /*
             Add to biomes in the "aqua_creeper_spawns" tag.
          */
-        BiomeModifications.addSpawn(BiomeSelectors.tag(AquaTags.Biomes.AQUA_CREEPER_SPAWNS), SpawnGroup.MONSTER, AquaCreeperEntityTypes.AQUA_CREEPER, 5, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.tag(AquaTags.Biomes.AQUA_CREEPER_SPAWNS), SpawnGroup.MONSTER, AquaCreeperEntityTypes.AQUA_CREEPER, 2, 1, 1);
     }
 }

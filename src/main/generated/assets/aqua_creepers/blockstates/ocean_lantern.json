@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "aqua_creepers:block/ocean_lantern"
+    },
+    "hanging=true": {
+      "model": "aqua_creepers:block/ocean_lantern_hanging"
+    }
+  }
+}

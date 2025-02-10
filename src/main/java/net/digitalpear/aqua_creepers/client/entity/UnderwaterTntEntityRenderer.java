@@ -2,6 +2,8 @@ package net.digitalpear.aqua_creepers.client.entity;
 
 import net.digitalpear.aqua_creepers.common.entities.UnderwaterTntEntity;
 import net.digitalpear.aqua_creepers.init.AquaBlocks;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
@@ -14,6 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 
+@Environment(EnvType.CLIENT)
 public class UnderwaterTntEntityRenderer extends EntityRenderer<UnderwaterTntEntity> {
     private final BlockRenderManager blockRenderManager;
 

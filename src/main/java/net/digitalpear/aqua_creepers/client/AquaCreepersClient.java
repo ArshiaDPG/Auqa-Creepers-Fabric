@@ -5,12 +5,15 @@ import net.digitalpear.aqua_creepers.client.entity.UnderwaterTntMinecartEntityRe
 import net.digitalpear.aqua_creepers.client.entity.aqua_creeper.AquaCreeperEntityModel;
 import net.digitalpear.aqua_creepers.client.entity.aqua_creeper.AquaCreeperEntityRenderer;
 import net.digitalpear.aqua_creepers.client.entity.UnderwaterTntEntityRenderer;
+import net.digitalpear.aqua_creepers.init.AquaBlocks;
 import net.digitalpear.aqua_creepers.init.AquaCreeperEntityTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.MinecartEntityModel;
 
@@ -23,6 +26,10 @@ public class AquaCreepersClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                AquaBlocks.OCEAN_TORCH, AquaBlocks.OCEAN_WALL_TORCH,
+                AquaBlocks.OCEAN_CAMPFIRE, AquaBlocks.OCEAN_LANTERN);
+
         EntityRendererRegistry.register(AquaCreeperEntityTypes.AQUA_CREEPER, AquaCreeperEntityRenderer::new);
         EntityRendererRegistry.register(AquaCreeperEntityTypes.UNDERWATER_TNT, UnderwaterTntEntityRenderer::new);
         EntityRendererRegistry.register(AquaCreeperEntityTypes.UNDERWATER_TNT_MINECART, UnderwaterTntMinecartEntityRenderer::new);
