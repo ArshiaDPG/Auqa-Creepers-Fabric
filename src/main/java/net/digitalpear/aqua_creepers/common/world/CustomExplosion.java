@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.digitalpear.aqua_creepers.init.AquaCreeperSounds;
 import net.digitalpear.aqua_creepers.init.data.ModCompat;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -184,7 +185,7 @@ public class CustomExplosion extends Explosion {
     }
 
     public void affectWorld(boolean boolean_1) {
-        this.world.playSound(null, this.x, this.y, this.z, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
+        this.world.playSound(null, this.x, this.y, this.z, AquaCreeperSounds.UNDERWATER_EXPLOSION, SoundCategory.BLOCKS, 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
         boolean shouldDropLoot = this.destructionType != DestructionType.KEEP;
         if (this.world.isClient()){
             if (!ModCompat.isEELoaded()){

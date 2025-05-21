@@ -11,7 +11,7 @@ public abstract class CustomMinecartEntity extends AbstractMinecartEntity {
     protected CustomMinecartEntity(EntityType<?> entityType, World world) {
         super(entityType, world);
     }
-    public static AbstractMinecartEntity create(World world, double x, double y, double z, Type type) {
+    public static AbstractMinecartEntity create(World world, double x, double y, double z) {
         return UnderwaterTntMinecartEntity.createUnderwaterTntMinecartEntity(world, x, y, z);
     }
 

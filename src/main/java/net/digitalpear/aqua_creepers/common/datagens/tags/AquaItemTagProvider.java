@@ -1,5 +1,6 @@
 package net.digitalpear.aqua_creepers.common.datagens.tags;
 
+import net.digitalpear.aqua_creepers.init.AquaItems;
 import net.digitalpear.aqua_creepers.init.AquaTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -22,6 +23,6 @@ public class AquaItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(AquaTags.Items.AQUA_CREEPER_DROP_MUSIC_DISCS).forceAddTag(ItemTags.CREEPER_DROP_MUSIC_DISCS);
         getOrCreateTagBuilder(AquaTags.Items.KNIVES);
-        getOrCreateTagBuilder(AquaTags.Items.GRANTS_UNDERWATER_COOKING_ADVANCEMENT).add(Items.COD, Items.SALMON);
+        getOrCreateTagBuilder(AquaTags.Items.GRANTS_UNDERWATER_COOKING_ADVANCEMENT).add(Items.COD, Items.SALMON, AquaItems.AQUA_CREEPER);
     }
 }

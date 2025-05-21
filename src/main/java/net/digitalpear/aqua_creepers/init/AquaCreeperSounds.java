@@ -17,7 +17,6 @@ public class AquaCreeperSounds {
     public static final SoundEvent UNDERWATER_EXPLOSION = register("underwater_explosion");
     public static final SoundEvent UNDERWATER_FUSE = register("underwater_fuse");
 
-
     public static void init(){
     }
 }

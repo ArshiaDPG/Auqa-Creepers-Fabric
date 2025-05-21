@@ -1,6 +1,8 @@
 {
   "advancement.husbandry.sous_vide.desc": "Cook fish using a lit Sodium Campfire.",
   "advancement.husbandry.sous_vide.title": "Sous Vide",
+  "advancement.husbandry.spicy_seafood.desc": "Cook an Aqua Creeper on a Sodium Campfire.",
+  "advancement.husbandry.spicy_seafood.title": "Spicy Seafood",
   "block.aqua_creepers.ocean_campfire": "Ocean Campfire",
   "block.aqua_creepers.ocean_lantern": "Ocean Lantern",
   "block.aqua_creepers.ocean_torch": "Ocean Torch",

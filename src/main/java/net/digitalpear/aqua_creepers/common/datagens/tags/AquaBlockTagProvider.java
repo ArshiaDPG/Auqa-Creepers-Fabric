@@ -27,5 +27,7 @@ public class AquaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(AquaBlocks.OCEAN_CAMPFIRE);
 
         getOrCreateTagBuilder(AquaTags.Blocks.WATER_CAMPFIRE_SIGNAL_BOOSTERS).forceAddTag(BlockTags.CORAL_BLOCKS).add(Blocks.WET_SPONGE);
+
+        getOrCreateTagBuilder(BlockTags.CAMPFIRES).add(AquaBlocks.OCEAN_CAMPFIRE);
     }
 }

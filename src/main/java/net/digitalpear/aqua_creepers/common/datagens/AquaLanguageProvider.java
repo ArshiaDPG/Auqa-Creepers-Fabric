@@ -36,7 +36,7 @@ public class AquaLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(AquaBlocks.OCEAN_LANTERN, "Ocean Lantern");
 
         advancementTranslation(translationBuilder, AquaAdvancementProvider.SOUS_VIDE, "Sous Vide", "Cook fish using a lit Sodium Campfire.");
-//        advancementTranslation(translationBuilder, AquaAdvancementProvider.GRIEF_PROTECTION, "Grief Protection", "Kill every type of creeper.");
+        advancementTranslation(translationBuilder, AquaAdvancementProvider.SPICY_SEAFOOD, "Spicy Seafood", "Cook an Aqua Creeper on a Sodium Campfire.");
     }
 
     public void advancementTranslation(TranslationBuilder builder, Advancement advancement, String title, String desc){

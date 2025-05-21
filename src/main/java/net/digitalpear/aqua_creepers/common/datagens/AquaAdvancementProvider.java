@@ -3,6 +3,7 @@ package net.digitalpear.aqua_creepers.common.datagens;
 import net.digitalpear.aqua_creepers.AquaCreepers;
 import net.digitalpear.aqua_creepers.init.AquaBlocks;
 import net.digitalpear.aqua_creepers.init.AquaCreeperEntityTypes;
+import net.digitalpear.aqua_creepers.init.AquaItems;
 import net.digitalpear.aqua_creepers.init.AquaTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
@@ -35,19 +36,11 @@ public class AquaAdvancementProvider extends FabricAdvancementProvider {
             .parent(AdvancementTabGenerator.createEmptyAdvancement("husbandry/root"))
             .build(AquaCreepers.id("husbandry/sous_vide"));
 
-//    public static final Advancement GRIEF_PROTECTION = requireListedMobsKilled()
-//            .display(new ItemStack(Items.CREEPER_HEAD), Text.translatable("advancement.adventure.grief_protection.title"), Text.translatable("advancement.adventure.grief_protection.desc"), null, AdvancementFrame.TASK, true, true, false)
-//            .parent(AdvancementTabGenerator.createEmptyAdvancement("adventure/kill_a_mob"))
-//            .build(AquaCreepers.id("adventure/grief_protection"));
-
-    private static Advancement.Builder requireListedMobsKilled() {
-        Advancement.Builder builder = Advancement.Builder.create();
-        for (EntityType<?> entityType : List.of(EntityType.CREEPER, AquaCreeperEntityTypes.AQUA_CREEPER)) {
-            builder.criterion(Registries.ENTITY_TYPE.getId(entityType).toString(), net.minecraft.advancement.criterion.OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(entityType)));
-        }
-
-        return builder;
-    }
+    public static final Advancement SPICY_SEAFOOD = Advancement.Builder.create()
+            .display(new ItemStack(AquaBlocks.OCEAN_CAMPFIRE), Text.translatable("advancement.husbandry.spicy_seafood.title"), Text.translatable("advancement.husbandry.spicy_seafood.desc"), null, AdvancementFrame.CHALLENGE, true, true, true)
+            .criterion("cook_creeper_on_ocean_campfire", ItemCriterion.Conditions.createItemUsedOnBlock(LocationPredicate.Builder.create().fluid(FluidPredicate.Builder.create().fluid(Fluids.WATER).build()).block(BlockPredicate.Builder.create().blocks(AquaBlocks.OCEAN_CAMPFIRE).state(StatePredicate.Builder.create().exactMatch(CampfireBlock.LIT, true).exactMatch(CampfireBlock.WATERLOGGED, true).build()).build()), ItemPredicate.Builder.create().items(AquaItems.AQUA_CREEPER)))
+            .parent(SOUS_VIDE)
+            .build(AquaCreepers.id("husbandry/spicy_seafood"));
 
     public AquaAdvancementProvider(FabricDataOutput output) {
         super(output);
@@ -56,6 +49,6 @@ public class AquaAdvancementProvider extends FabricAdvancementProvider {
     @Override
     public void generateAdvancement(Consumer<Advancement> consumer) {
         consumer.accept(SOUS_VIDE);
-//        consumer.accept(GRIEF_PROTECTION);
+        consumer.accept(SPICY_SEAFOOD);
     }
 }

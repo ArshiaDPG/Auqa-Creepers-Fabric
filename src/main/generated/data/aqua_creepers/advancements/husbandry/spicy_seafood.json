@@ -1,0 +1,58 @@
+{
+  "parent": "aqua_creepers:husbandry/sous_vide",
+  "criteria": {
+    "cook_creeper_on_ocean_campfire": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "aqua_creepers:ocean_campfire"
+                ],
+                "state": {
+                  "lit": "true",
+                  "waterlogged": "true"
+                }
+              },
+              "fluid": {
+                "fluid": "minecraft:water"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "aqua_creepers:aqua_creeper"
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.husbandry.spicy_seafood.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "aqua_creepers:ocean_campfire"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.husbandry.spicy_seafood.title"
+    }
+  },
+  "requirements": [
+    [
+      "cook_creeper_on_ocean_campfire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
